@@ -124,4 +124,11 @@ Just like let, const declarations are hoisted to the top but are not initiali
 
 ## What Exactly Is a Temporal Dead Zone in JavaScript?
 A temporal dead zone (TDZ) is the area of a block where a variable is inaccessible until the moment the computer completely initializes it with a value
-. A block is a pair of braces ( {...} ) used to group multiple
+. A block is a pair of braces ( {...} ) used to group multiple statements.
+```javascript
+{
+console.log(name); // temperory dead zone(TDZ)
+let name = "David";
+console.log(name);
+}
+```
