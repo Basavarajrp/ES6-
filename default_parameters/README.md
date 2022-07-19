@@ -1,7 +1,7 @@
 # Handling default parameters in ES5
-Everyone knows about the functions and its use cases, during the ES5 we still defined functions with input parameters to it. 
+Everyone knows about the functions and its use cases, during the ES5 we have defined functions with input parameters to it. 
 
-:worried: When calling the functions what if we have not passed the input paramters, how this was handled.
+:worried: When calling the functions what if we have not passed the input paramters, and how this was handled.
 
 Let's get into the code.
 ```Javascript
@@ -57,6 +57,74 @@ As we can see even after passing the 0(falsy) value as the functional argument w
 
 
 # Undefined v/s falsy values as default paramters
+```javascript
+function print(num=2) {
+    console.log(num)
+}
+
+print(undefined) // 2 (still takes the default value.)
+print(null) // returns null
+```
+From the above example we can say that even though if we set default parameter num to "undefined" still the default value 2 is considered, apart from  "undefined" if we pass any other falsy values like "null" and empty string default value is not considered.
+
+# Evaluation of default parameters
+All the default parameters are evaluated at the call time, so every time we call the function new object is created, unlike in python.
+```JavaScript
+function defaultParams (arr = []) {
+    return arr
+}
+
+const res1 = defaultParams([1,2])
+const res2 = defaultParams([3,4])
+
+console.log(res1 === res2) // false
+```
 # Accessing the early paramters
+Default parameters that are defined inside the function are evaluated from left to right. 
+
+The default parameters that are defined on the left side can be accessed by the parameters defined at the right side.
+
+```javascript
+function add(num1, num2, result = num1+num2){
+    return result
+}
+
+console.log(add(4, 4)) // 8 
+```
 # Effect of scope on default paramters
-# Objects and Arrays as default paramters
+# Destructuring array and object as default parameters.
+## :dizzy: Destructuring of array.
+```javascript
+function add([num1=4, num2=5] = []) {
+    return num1 + num2;
+}
+
+console.log(add()) // 9
+console.log(add([2,2])) // 4
+```
+
+## :dizzy: Destructuring of object.
+```javascript
+function add([num1=4, num2=5] = []) {
+    return num1 + num2;
+}
+
+console.log(add()) // 9
+console.log(add([2,2])) // 4
+```
+# Some cool trick to evaluate the deafault parameter.
+
+We can also do validation on the default parameter by the following way.
+```javascript
+const validate = () => { throw new Error('Please enter the number.'); };
+
+function print(num = validate()) {
+    console.log(num);
+}
+
+print() // Error: Please enter the number.
+print(5) // 5.
+```
+We can create the validations for the default parameters like the above example and perform some other operations with the validated result. 
+
+I just wanted show that we can pass the external function to the default parameter not just only the values.
