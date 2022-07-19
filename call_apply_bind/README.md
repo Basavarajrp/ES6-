@@ -156,5 +156,6 @@ Ex: HTML click events require the functions to get executed based on the events,
 
 # Advantage of using Call, Apply and Bind in JavaScript.
 - JavaScript "this" keyword points to the current execution context and returns the value, so "call", "apply" and "bind" methods allows us to explicitly define the execution context of our functions.
+- Using the call, apply and bind we can make the explicit binding.
 - It allows us to make use of the existing functions from one object into other object without re-defining but by just by making use of exsting function itself.
 - It helps us to overcome DRY(Don't Repeat Yourself) principle, by avoiding the repetation of the code. 

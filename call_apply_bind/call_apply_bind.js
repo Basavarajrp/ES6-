@@ -1,3 +1,4 @@
+// THIS in JS:
 const Person1 = {
     name: "Rajesh",
     lastName: "Kumar",
@@ -7,7 +8,6 @@ const Person1 = {
 }
 
 Person1.greeting() // Hello Rajesh Kumar.
-
 
 const Person2 = {
     name: "Rajesh",
@@ -20,12 +20,13 @@ const Person2 = {
 // Taking the reference of the greeting function from the Person object.
 const personObject = Person2.greeting;
 
-// Executing the greeting function outsiide the scope of the Person object.
+// Executing the greeting function outside the scope of the Person object.
 personObject() // Hello undefined undefined
 
 
+// CALL, APPLY AND BIND:
 // Person object.
-const Person = {
+const Person3 = {
     name: "Rajesh",
     lastName: "Kumar",
     greeting: function () {
@@ -34,61 +35,20 @@ const Person = {
 }
 
 // Customer object.
-const Customer = {
-    name: "Ramesh",
-    lastName: "Kumar",
-    greeting: function () {
-        console.log(`Hello ${this.name} ${this.lastName}.`)
-    }
-}
-
-
-// Person object.
-const Person = {
-    name: "Rajesh",
-    lastName: "Kumar",
-    greeting: function () {
-        console.log(`Hello ${this.name} ${this.lastName}.`)
-    }
-}
-
-// Customer object.
-const Customer = {
+const Customer3 = {
     name: "Ramesh",
     lastName: "Kumar"
 }
 
 // call() method
-Person.greeting.call(Customer); // Hello Ramesh Kumar!
+Person3.greeting.call(Customer3); // Hello Ramesh Kumar!
 
 //apply() method
-Person.greeting.apply(Customer); // Hello Ramesh Kumar!
+Person3.greeting.apply(Customer3); // Hello Ramesh Kumar!
 
 // bind() method
-const greet = Person.greeting.bind(Customer)
+const greet = Person3.greeting.bind(Customer3)
 greet() // Hello Ramesh Kumar!
 
 
-// Reusable function
-const greeting = function (place) {
-    console.log(`Hello ${this.name} ${this.lastName} welcome to ${place}`);
-}
-
-// Person object
-const Person = {
-    name: "Rakesh",
-    lastName: "Kumar"
-}
-
-// Customer object
-const Customer = {
-    name: "Rajesh",
-    lastName: "Kumar"
-}
-
-// apply() method
-greeting.apply(Customer, ['Mangalore']); // Hello Rakesh Kumar welcome to Bangalore
-
-// call() method
-greeting.call(Person, 'Bangalore'); // Hello Rakesh Kumar welcome to Bangalore
 
