@@ -100,7 +100,7 @@ In the above example we can see that parameter result is making use of num1 and 
 These above method is also known as "Using Expression as Default Values".
 
 # Effect of scope on default paramters
-Scope is very important concept in the JavaScript, understanding how scope works will make our development easy in JavaScript. If you want to understand more about scopes in JavaScript refer my blog on scopes. [Scope in JavaScript](https://basavarajrp.hashnode.dev/scope-in-javascript)
+Scope is very important concept in the JavaScript, understanding how scope works will make our development easy. If you want to understand more about scopes in JavaScript refer my blog on scopes. [Scope in JavaScript](https://basavarajrp.hashnode.dev/scope-in-javascript)
 
 When we define the function and call it , the scope is created for that particular function so that variables defined inside that functions cannot be accessed outside the function.
 
