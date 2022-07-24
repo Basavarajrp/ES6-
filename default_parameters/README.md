@@ -1,3 +1,4 @@
+:thinking:
 # Handling default parameters in ES5
 Everyone knows about the functions and its use cases, during the ES5 we have defined functions with input parameters to it. 
 
